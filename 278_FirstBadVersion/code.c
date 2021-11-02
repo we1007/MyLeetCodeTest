@@ -8,8 +8,8 @@ int firstBadVersion(int n)
     high = n;
     while(low < high)
     {
-        mid = (low + high) / 2; 
-        //mid = low + (high-low) / 2;  //防止溢出
+        //mid = (low + high) / 2;  //当low 和 high 相加的时可能超出int 的范围 改进如下
+        mid = low + (high-low) / 2;  //防止溢出 
         if(isBadVersion(mid)) //错误版本
             high = mid;
         else //正确版本
